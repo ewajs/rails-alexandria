@@ -19,6 +19,11 @@ class ApplicationController < ActionController::API
         paginator.paginate
     end
 
+
+    def sort(scope)
+        Sorter.new(scope, params).sort
+    end
+
     def current_url
         request.base_url + request.path
     end
