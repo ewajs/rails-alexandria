@@ -29,6 +29,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'carrierwave'
 gem 'carrierwave-base64'
 
+# To handle full text search
+gem 'pg_search'
+
 # To handle pagination
 gem 'kaminari'
 
