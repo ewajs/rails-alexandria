@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_01_28_134424) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authors", force: :cascade do |t|
     t.string "given_name"
     t.string "family_name"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 2021_01_28_134424) do
     t.string "isbn_13"
     t.text "description"
     t.date "released_on"
-    t.integer "publisher_id"
-    t.integer "author_id"
+    t.bigint "publisher_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cover"
@@ -44,4 +47,6 @@ ActiveRecord::Schema.define(version: 2021_01_28_134424) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "publishers"
 end
