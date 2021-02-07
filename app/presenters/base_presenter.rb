@@ -1,4 +1,6 @@
 class BasePresenter
+    include Rails.application.routes.url_helpers
+    
     # Define class level instance variables
     CLASS_ATTRIBUTES = {
         build_with: :build_attributes,
